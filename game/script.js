@@ -85,7 +85,7 @@ hold.addEventListener('click', function () {
       check_win();
       change_player();
     } else {
-      score_p1.textContent = Number(score_p0.textContent) + current_score;
+      score_p1.textContent = Number(score_p1.textContent) + current_score;
       current_score_p1.textContent = 0;
       current_score = 0;
       check_win();
