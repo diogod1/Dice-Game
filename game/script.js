@@ -10,6 +10,7 @@ const current_score_p0 = document.getElementById('current--0');
 const current_score_p1 = document.getElementById('current--1');
 const section_p0 = document.querySelector('.player--0');
 const section_p1 = document.querySelector('.player--1');
+const dice = document.querySelector('.dice');
 
 //temp variables
 var current_dice = 0;
@@ -26,8 +27,14 @@ const display_dice = function (number) {
 const check_win = function () {
   if (Number(score_p0.textContent) >= 100) {
     alert('Player 1 wins!');
+    dice.classList.add('hidden');
+    section_p0.classList.add('.player--winner');
+    reset(); //reset the game
   } else if (Number(score_p1.textContent) >= 100) {
     alert('Player 2 wins!');
+    section_p1.classList.add('.player--winner');
+    dice.classList.add('.hidden');
+    reset(); //reset the game
   }
 };
 
@@ -38,6 +45,8 @@ const reset = function () {
   score_p0.textContent = 0;
   score_p1.textContent = 0;
   current_player = 1;
+  section_p1.classList.remove('.player--winner');
+  section_p0.classList.remove('.player--winner');
   change_player();
 };
 
